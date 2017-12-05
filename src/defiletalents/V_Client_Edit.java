@@ -283,7 +283,7 @@ public class V_Client_Edit extends javax.swing.JDialog {
         String commentaire = edCommentaire.getText();
         int id_origine = originesId.length == 0 ? -1 : originesId[cbOrigine.getSelectedIndex()];
 
-        if (!(nom.equals("") || prenom.equals("") || id_origine == -1)) {
+        if (!(nom.equals("") || id_origine == -1)) { // Suppresion de la condition || (prenom.equals("") 
             if (courriel.isEmpty() || Verify.toMail(courriel)) {
                 idResult = controller.updateClient(id, nom, prenom, adresse1, adresse2, lieu_dit, code_postal, bureau, telephone, courriel, commentaire, id_origine);
                 if (parent == null) {
@@ -299,7 +299,7 @@ public class V_Client_Edit extends javax.swing.JDialog {
             }
         }
         else {
-            lbWarning.setText("Erreur: Les champs Nom, Prénom, Lieu dit, code postal, \nbureau et courriel sont obligatoires.");
+            lbWarning.setText("Erreur: Les champs Nom et Origine sont obligatoires.");
         }
     }//GEN-LAST:event_btValiderActionPerformed
 
